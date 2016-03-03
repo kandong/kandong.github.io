@@ -1,0 +1,41 @@
+<article class='project-content project-{{::project.alias}}'>
+	<section class='intro'>
+		<div class='container'>
+			<hgroup>
+				<h1 class='project-title'>{{::project.title}}</h1>
+				<h2>{{::project.subtitle}}</h2>
+				<p ng-if='project.description'>{{::project.description}}</p>
+				<p class='project-tools'><span class='font-icon icon-code'></span>{{::project.tools.join(', ')}}</p>
+				<a class='btn-main project-link' ng-if='project.link' href="{{::project.link}}" target='_blank'><span class='btn-text'>Go to site</span></a>
+			</hgroup>
+			<div class='jumbotron'>
+				<div class='img-wrapper desktop'>
+					<img ng-src="/images/project/{{::project.imgPath}}/desktop.png" alt='desktop layout of {{::project.title}}'>
+				</div>
+				<div class='img-wrapper tablet'>
+					<img ng-src="/images/project/{{::project.imgPath}}/tablet.png" alt='tablet layout of {{::project.title}}'>
+				</div>
+				<div class='img-wrapper mobile' ng-hide='project.noMobile'>
+					<img ng-if='!project.noMobile' ng-src="/images/project/{{::project.imgPath}}/mobile.png" alt='mobile layout of {{::project.title}}'>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class='screenshots'>
+		<div class='screenshot' ng-repeat='screenshot in ::project.screenshots'>
+			<div class='container'>
+				<h3 ng-if='::screenshot.title' class='screenshot-title'>{{::screenshot.title}}</h3>
+				<p ng-if='::screenshot.description' class='screenshot-description'>{{::screenshot.description}}</p>
+				<div class='screenshot-images'>
+					<img ng-repeat='image in ::screenshot.images' ng-src="/images/project/{{::project.imgPath}}/{{::image}}">
+				</div>
+			</div>
+		</div>
+	</section>
+</article>
+<div class='project-nav' ng-class="{'at-bottom' : footer.inview}">
+	<div class='container'>
+		<a href="#/project/{{::prevProject}}"><span class='nav-prev'></span><span>previous project</span></a>
+		<a href="#/project/{{::nextProject}}"><span class='nav-next'></span><span>next project</span></a>			
+	</div>
+</div>

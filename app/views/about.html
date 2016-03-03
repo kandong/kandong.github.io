@@ -1,0 +1,75 @@
+<article id='about-content'>
+	<div class='container clearfix'>
+		<div class='header'>
+			<h2 class='header-name'>Kan Dong</h2>
+			<h3 class='header-title'>Front end developer</h3>
+			<ul class='social-links'>
+				<li class='header-location'><span class='font-icon icon-location'></span>Los Angeles</li>
+	            <li ng-repeat='socialLink in ::socialLinks'><a href="{{::socialLink.link}}" target="_blank"><span class='font-icon icon-{{::socialLink.label | lowercase}}'></span>{{::socialLink.short}}</a></li>
+	        </ul>
+		</div>
+		<div class='panel-left'>
+			<section class='experiences'>
+				<h2 class='section-heading'><span class='font-icon icon-experience'></span>Experiences</h2>
+				<ul class='timeline'>
+					<li ng-repeat='experience in ::experiences' class='timeline-item'>
+						<div class='aside'>
+							<h4 class='time'>{{::experience.time}}</h4>
+						</div>
+						<div class='main'>
+							<h3 class='title'>{{::experience.title}}</h3>
+							<h5 class='location'>{{::experience.company}}</h5>
+							<p class='description'>{{::experience.description}}</p>						
+							<h5 ng-if='experience.skills' class='skills'><span class='font-icon icon-code'></span>{{::experience.skills.join(', ')}}</h5>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<section class='education'>
+				<h2 class='section-heading'><span class='font-icon icon-education'></span>Eduation</h2>
+				<ul class='timeline'>
+					<li ng-repeat='edu in ::education' class='timeline-item'>
+						<div class='aside'>
+							<h4 class='time'>{{::edu.time}}</h4>
+						</div>
+						<div class='main'>
+							<h3 class='title'>{{::edu.title}}</h3>
+							<h5 class='location'>{{::edu.school}}</h5>
+							<p ng-if='edu.description' class='description'>{{::edu.description}}</p>
+						</div>
+					</li>
+				</ul>
+			</section>
+		</div>
+		<div class='panel-right'>
+			<section class='skills'>
+				<div>
+					<h2 class='section-heading'><span class='font-icon icon-code'></span>Development Skills</h2>
+					<ul class='chart'>
+						<li data-chart='10'>
+							<span>HTML</span>
+						</li>
+						<li data-chart='10'>
+							<span>CSS</span>
+						</li>
+						<li data-chart='7'>JavaScript</li>
+						<li data-chart='9'>jQuery</li>
+						<li data-chart='10'>Sass</li>
+						<li data-chart='5'>Backbone.Js</li>
+						<li data-chart='5'>AngularJS</li>
+						<li data-chart='5'>React</li>
+						<li data-chart='7'>Git</li>
+						<li data-chart='5'>Grunt / Gulp</li>
+					</ul>
+				</div>
+				<div>
+					<h2 class='section-heading'><span class='font-icon icon-design'></span>Design Skills</h2>
+					<ul class='chart'>
+						<li data-chart='9'>Photoshop</li>
+						<li data-chart='7'>Illustrator</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</div>
+</article>

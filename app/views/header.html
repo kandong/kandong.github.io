@@ -1,0 +1,28 @@
+<div class='container'>
+    <a id='logo' class='btn-header' href='#/' ng-class="{'open': menu.open}"><span>K</span></a>
+    <nav id='nav-menu' ng-class="{'open' : menu.open}">
+        <ul class='nav-links'>
+            <li><a href='#/' ng-click='menu.open = false;scrollTo("work")' id='nav-work'>Work</a></li>
+            <li><a href="#/about" ng-click='menu.open = false'>About</a></li>
+            <li>
+                <a id='contact-link' ng-click='contact.open = !contact.open'>Contact</a>
+                <ul class='social-links' ng-show='contact.open || menu.open'>
+                    <social ng-repeat='link in ::socialLinks' link-data='link'></social>
+                </ul>
+            </li>
+        </ul>
+  </nav>
+</div>
+<a ng-click='menu.open = !menu.open' ng-class="{'open': menu.open}" class='menu-toggle btn-header'>
+    <span></span>
+</a>
+<div id='contact-content' ng-class="{'open': contact.open}">
+    <div class='content-wrapper'>
+        <h1>Connect with Me</h1>
+        <div class='content-row' ng-repeat='socialLink in ::socialLinks'>
+            <h3>{{::socialLink.label}}</h3>
+            <p><a href="{{::socialLink.link}}" target="_blank">{{::socialLink.short}}</a></p>
+        </div>
+        <span class='close-content' ng-click='contact.open = !contact.open'>Close</span>
+    </div>
+</div>

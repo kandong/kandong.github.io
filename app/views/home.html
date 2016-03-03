@@ -1,0 +1,37 @@
+<section class='intro'>
+  <div class='container'>
+        <div class='statement'>
+            <h1>Kan is a <span class='block'>front end developer</span></h1>
+      <div class='spin-text-block'>
+                <span id='heart'></span>
+                <span class='spin-constant'>who</span>
+                <ul class='spin-text-wrapper'>
+                    <li class='spin-text'>loves</li>
+                    <li class='spin-text'>enjoys</li>
+                    <li class='spin-text'>creates</li>
+                </ul>
+                <ul class='spin-text-wrapper'>
+                    <li class='spin-text'>delightful user experience</li>
+                    <li class='spin-text'>pixel perfect design</li>
+                    <li class='spin-text'>meaningful interaction</li>
+                </ul>
+            </div>
+        </div>
+  </div>
+</section>
+<a id='work'></a>
+<section id='work-container'>
+    <div class='container'>    
+        <div id='thumbnail-grid' class='grid'>
+            <a ng-repeat='(alias, project) in ::projects' in-view="project.inview = $inview" in-view-options="{ debounce: 250 }" ng-class="::{'in-view' : routeChange || project.inview}" class='thumbnail' href='#/project/{{::alias}}'>
+              <figure>
+                  <img alt='thumbnail of project {{::project.title}}' sizes='(min-width: 1220px) 400px, (min-width: 1024px) calc(33vw - 10px), (min-width: 768px) calc(50vw - 10px), 100vw' load-img='767,1534,510,1020' load-img-src='/images/home/{{::project.imgPath}}' model='thumbnail'>
+                  <figcaption class='copy-wrapper'>
+                      <h3 class='title'>{{::project.title}}</h3>
+                      <p class='sub-title'>{{::project.subtitle}}</p>
+                  </figcaption>
+              </figure>
+            </a>
+      </div>
+    </div>
+</section>
