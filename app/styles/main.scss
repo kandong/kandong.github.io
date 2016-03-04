@@ -55,6 +55,7 @@
 .icon-education:before { content: '\75'; } /* 'u' */
 .icon-location:before { content: '\77'; } /* 'w' */
 .icon-experience:before { content: '\78'; } /* 'x' */
+.icon-doc:before { content: '\72'; } /* 'r' */
 
 @mixin bp($point) {
     @if $point == small {
@@ -1180,6 +1181,12 @@ footer {
 #about-content {
     .header {
         padding: 1em 0 2em;
+        .btn-main {
+            display: none;
+            @include bp(most) {
+                display: block;
+            }
+        }
     }
     .header-name {
         font-size: 2em;
@@ -1193,7 +1200,7 @@ footer {
     .font-icon {
         display: inline-block;
         width: 1.5em;
-        margin-right: 10px;
+        margin-right: 5px;
         text-align: center;
     }
     .social-links {
@@ -1226,10 +1233,22 @@ footer {
         font-weight: 300;
     }
     .location {
-        margin-top: -0.75em;
+        margin-top: 0;
     }
     .time {
         font-style: italic;
+    }
+    .list-container {
+        display: flex;
+        ul {
+            width: 50%;
+        }
+        .list-heading {
+            text-transform: capitalize;
+        }
+    }
+    .v-space {
+        margin: 0 0 0.5em;
     }
 }
 
@@ -1237,9 +1256,6 @@ footer {
     margin-top: 2em;
     .aside {
         font-size: 0.875em;
-    }
-    .time, .title {
-        margin-top: 0;
     }
     .time {
         margin-bottom: 0.5em;

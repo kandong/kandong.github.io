@@ -29,6 +29,7 @@ angular.module('portfolioApp')
 				'Git',
 				'Grunt'
 			],
+			'skillType': 'code',
 			'description': 'Develop intuitive features and interfaces for an in-house E-commerce platform and client websites.'
 		},
 		{
@@ -41,18 +42,28 @@ angular.module('portfolioApp')
 				'After Effects',
 				'Blender'
 			],
+			'skillType': 'design',
 			'description': 'Design interfaces for interactive projects such as Discovery Science Center interactive games, University of Wisconsin interactive kiosks and others.'
 		},
 		{
 			'title': 'UX Designer',
 			'time': '05/2013 - 06/2014',
 			'company': 'TheHalfCity.com, Los Angeles, CA',
+			'skills': [
+				'Photoshop',
+			],
+			'skillType': 'design',
 			'description': 'Created a unique user experience for a web based social review application in the Chinese market.'
 		},
 		{
 			'title': 'Interactive Project Coordinator',
 			'time': '08/2012 - 04/2014',
 			'company': 'RGH Themed Entertainment, Woodland Hills, CA',
+			'skills': [
+				'Processing',
+				'Unity'
+			],
+			'skillType': 'code',
 			'description': 'Conducted usability testing, user research and created visualization prototypes to collaborate in the development of interactive experience prototypes.'
 		}
     ];
@@ -70,4 +81,23 @@ angular.module('portfolioApp')
     		'school': 'Communication University of China'
     	}
     ];
+
+    $scope.skills = {
+	    'mastered': [
+	    	'HTML',
+	    	'CSS',
+	    	'Sass',
+	    	'JavaScript',
+	    	'jQuery',
+	    	'PHP',
+	    	'Git',
+	    	'Grunt / Gulp'
+	    ],
+	    'growing': [
+	    	'Node.js',
+	    	'AngularJS',
+	    	'React',
+	    	'Babel'
+	    ]
+    };
   }]);

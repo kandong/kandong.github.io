@@ -6,6 +6,9 @@
 			<ul class='social-links'>
 				<li class='header-location'><span class='font-icon icon-location'></span>Los Angeles</li>
 	            <li ng-repeat='socialLink in ::socialLinks'><a href="{{::socialLink.link}}" target="_blank"><span class='font-icon icon-{{::socialLink.label | lowercase}}'></span>{{::socialLink.short}}</a></li>
+	            <li>
+			        <span class='font-icon icon-doc'></span><a href="../images/KanDong_FrontEndDeveloper.pdf" download><span class='btn-text'>Grab A Resume</span></a>
+	            </li>
 	        </ul>
 		</div>
 		<div class='panel-left'>
@@ -14,13 +17,13 @@
 				<ul class='timeline'>
 					<li ng-repeat='experience in ::experiences' class='timeline-item'>
 						<div class='aside'>
-							<h4 class='time'>{{::experience.time}}</h4>
+							<h4 class='time v-space'>{{::experience.time}}</h4>
 						</div>
 						<div class='main'>
-							<h3 class='title'>{{::experience.title}}</h3>
+							<h3 class='title v-space'>{{::experience.title}}</h3>
 							<h5 class='location'>{{::experience.company}}</h5>
 							<p class='description'>{{::experience.description}}</p>						
-							<h5 ng-if='experience.skills' class='skills'><span class='font-icon icon-code'></span>{{::experience.skills.join(', ')}}</h5>
+							<h5 ng-if='experience.skills' class='skills'><span class='font-icon icon-{{::experience.skillType}}'></span>{{::experience.skills.join(', ')}}</h5>
 						</div>
 					</li>
 				</ul>
@@ -30,10 +33,10 @@
 				<ul class='timeline'>
 					<li ng-repeat='edu in ::education' class='timeline-item'>
 						<div class='aside'>
-							<h4 class='time'>{{::edu.time}}</h4>
+							<h4 class='time v-space'>{{::edu.time}}</h4>
 						</div>
 						<div class='main'>
-							<h3 class='title'>{{::edu.title}}</h3>
+							<h3 class='title v-space'>{{::edu.title}}</h3>
 							<h5 class='location'>{{::edu.school}}</h5>
 							<p ng-if='edu.description' class='description'>{{::edu.description}}</p>
 						</div>
@@ -45,28 +48,18 @@
 			<section class='skills'>
 				<div>
 					<h2 class='section-heading'><span class='font-icon icon-code'></span>Development Skills</h2>
-					<ul class='chart'>
-						<li data-chart='10'>
-							<span>HTML</span>
-						</li>
-						<li data-chart='10'>
-							<span>CSS</span>
-						</li>
-						<li data-chart='7'>JavaScript</li>
-						<li data-chart='9'>jQuery</li>
-						<li data-chart='10'>Sass</li>
-						<li data-chart='5'>Backbone.Js</li>
-						<li data-chart='5'>AngularJS</li>
-						<li data-chart='5'>React</li>
-						<li data-chart='7'>Git</li>
-						<li data-chart='5'>Grunt / Gulp</li>
-					</ul>
+					<div class='list-container'>
+						<ul ng-repeat='(title, skill) in ::skills'>
+							<li><h3 class='list-heading v-space'>{{::title}}</h3></li>
+							<li ng-repeat='s in ::skill'>{{s}}</li>
+						</ul>						
+					</div>
 				</div>
 				<div>
 					<h2 class='section-heading'><span class='font-icon icon-design'></span>Design Skills</h2>
-					<ul class='chart'>
-						<li data-chart='9'>Photoshop</li>
-						<li data-chart='7'>Illustrator</li>
+					<ul>
+						<li>Photoshop</li>
+						<li>Illustrator</li>
 					</ul>
 				</div>
 			</section>
