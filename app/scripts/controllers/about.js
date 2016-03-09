@@ -83,7 +83,7 @@ angular.module('portfolioApp')
     ];
 
     $scope.skills = {
-	    'mastered': [
+	    'experienced': [
 	    	'HTML',
 	    	'CSS',
 	    	'Sass',

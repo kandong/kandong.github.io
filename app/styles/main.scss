@@ -979,17 +979,21 @@ footer {
 
 .project-nav {
     @extend .clearfix;
-    display: none;
-    @include bp(most) {
-        display: block;
-        padding-bottom: 1em;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-        transition: all 0.15s $drop;
+    display: block;
+    padding-bottom: 1em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    transition: all 0.15s $drop;
+    &.at-bottom {
+        position: absolute;
+        bottom: 5.5em;
+    }
+    @include bp(mobile) {
+        padding-bottom: 0;
+        background-color: white;
         &.at-bottom {
-            position: absolute;
-            bottom: 5.5em;
+            bottom: 7.5em;
         }
     }
     a {
@@ -997,22 +1001,24 @@ footer {
         text-decoration: none;
         line-height: 3;
         color: $color-med-gray;
-        border-bottom: 1px solid $color-med-gray;
         &:first-child {
             float: left;
         }
         &:last-child {
             float: right;
         }
-        &:after {
-            content: ' ';
-            display: block;
-            width: 0;
-            height: 1px;
-            background-color: $color-dark-gray;
-            transition: width 0.2s $drop;
+        @include bp(most) {
+            border-bottom: 1px solid $color-med-gray;
+            &:after {
+                content: ' ';
+                display: block;
+                width: 0;
+                height: 1px;
+                background-color: $color-dark-gray;
+                transition: width 0.2s $drop;
+            }            
         }
-        &:hover {
+        .no-touchevents &:hover {
             color: $color-dark-gray;
             &:after {
                 width: 100%;
@@ -1072,8 +1078,6 @@ footer {
     @extend .clearfix;
     .intro {
         min-height: 460px;
-        // padding: 3% 0;
-        // background-color: $color-lightest-gray;
     }
     .project-title {
         margin-bottom: 0;
@@ -1087,7 +1091,7 @@ footer {
         }
     }
     .project-link {
-        margin-top: 1em;
+        margin: 1em 0;
     }
     .screenshots {
         background-color: $color-lightest-gray;

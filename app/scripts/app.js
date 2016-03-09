@@ -8,19 +8,6 @@
  *
  * Main module of the application.
  */
-angular.module('portfolioApp', [
-        'ngAnimate',
-        'ngRoute',
-        'angular-inview'
-    ])
-    .config(config)
-    .service('anchorSmoothScroll', anchorSmoothScroll)
-    .factory('projects', factoryProjects)
-    .directive('loadImg', loadImg)
-    .directive('social', social)
-    .controller('MainController', ['$scope', '$location', 'anchorSmoothScroll', MainController])
-    .run(run);
-
 function config($routeProvider) {
     $routeProvider
     .when('/', {
@@ -41,7 +28,7 @@ function config($routeProvider) {
     });
 }
 
-function run($rootScope, $location, $timeout, $anchorScroll, anchorSmoothScroll) {
+function run($rootScope, $location, $timeout, $anchorScroll) {
     $rootScope.$on('$routeChangeSuccess', function() {
         if ($location.hash() === 'work') {
             $rootScope.routeChange = true;
@@ -404,3 +391,16 @@ function factoryProjects() {
 
     return projects;
 }
+
+angular.module('portfolioApp', [
+        'ngAnimate',
+        'ngRoute',
+        'angular-inview'
+    ])
+    .config(config)
+    .service('anchorSmoothScroll', anchorSmoothScroll)
+    .factory('projects', factoryProjects)
+    .directive('loadImg', loadImg)
+    .directive('social', social)
+    .controller('MainController', ['$scope', '$location', 'anchorSmoothScroll', MainController])
+    .run(run);
