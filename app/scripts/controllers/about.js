@@ -12,9 +12,44 @@ angular.module('portfolioApp')
   	$scope.page = 'about';
 
     $scope.experiences = [
+    {
+      'title': 'Software Engineer',
+      'time': '03/2017 - Present',
+      'company': 'Workpop, Los Angeles, CA',
+      'skills': [
+        'React',
+        'Redux',
+        'Apollo/GraphQL',
+        'ES2015+',
+        'Glamor',
+        'Recompose',
+        'Webpack',
+        'Babel',
+        'Yarn',
+      ],
+      'skillType': 'code',
+      'description': 'Build internal React components library, creating consistent and engaging design patterns across all parts of our platform.  Shipped the Career Site custom builder where clients can create their own branded Career pages in just a few minutes. As a result, larger clients were attracted to Workpop.  Updated the subscription model essential to business growth needs. This resolved long standing customer issues by making the account management experience CSS easier.'
+    },
+    {
+      'title': 'Front End Developer',
+      'time': '04/2016 - 03/2017',
+      'company': 'HomeHero, Santa Monica, CA',
+      'skills': [
+        'Vue',
+        'Laravel',
+        'HTML5',
+        'Stylus',
+        'ES2015',
+        'Webpack',
+        'Babel',
+        'Yarn',
+      ],
+      'skillType': 'code',
+      'description': 'Improved experience and performance to the patient signup and caregiver matching funnel through UI components redesign and code splitting.  Designed UI and led the front end development of a scheduling system that allows patient managers to assign caregivers with consideration of repeating services, geo location and aid needs.'
+    },
 		{
 			'title': 'Front end developer',
-			'time': '01/2015 - Present',
+			'time': '01/2015 - 04/2016',
 			'company': 'Excela Creative, Playa Vista, CA',
 			'skills': [
 				'Backbone.js',
@@ -84,20 +119,28 @@ angular.module('portfolioApp')
 
     $scope.skills = {
 	    'experienced': [
-	    	'HTML',
-	    	'CSS',
-	    	'Sass',
-	    	'JavaScript',
-	    	'jQuery',
-	    	'PHP',
-	    	'Git',
-	    	'Grunt / Gulp'
-	    ],
-	    'growing': [
-	    	'Node.js',
-	    	'AngularJS',
 	    	'React',
-	    	'Babel'
+	    	'Redux',
+	    	'Apollo/GraphQL',
+	    	'ES2015+',
+        'Glamor',
+        'Recompose',
+        'Node.js',
+        'Webpack',
+        'Babel',
+        'Vue',
+        'Laravel',
+        'HTML',
+        'CSS',
+        'Sass/Stylus',
+        'Yarn/NPM',
+        'Git',
+        'Gulp/Grunt',
+        'jQuery',
+      ],
+	    'growing': [
+        'Express',
+	    	'MongoDB',
 	    ]
     };
   }]);
