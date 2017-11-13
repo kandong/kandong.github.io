@@ -4,12 +4,12 @@
 			<h2 class='header-name'>Kan Dong</h2>
 			<h3 class='header-title'>Front end developer</h3>
 			<ul class='social-links'>
+        <li ng-repeat='socialLink in ::socialLinks'><a href="{{::socialLink.link}}" target="_blank"><span class='font-icon icon-{{::socialLink.label | lowercase}}'></span>{{::socialLink.short}}</a></li>
 				<li class='header-location'><span class='font-icon icon-location'></span>Los Angeles</li>
-	            <li ng-repeat='socialLink in ::socialLinks'><a href="{{::socialLink.link}}" target="_blank"><span class='font-icon icon-{{::socialLink.label | lowercase}}'></span>{{::socialLink.short}}</a></li>
-	            <li>
-			        <span class='font-icon icon-doc'></span><a href="../images/KanDong_FrontEndDeveloper.pdf" download><span class='btn-text'>Grab A Resume</span></a>
-	            </li>
-	        </ul>
+        <li>
+        	<span class='font-icon icon-doc'></span><a href="../images/KanDong_FrontEndDeveloper.pdf" download><span class='btn-text'>Grab A Resume</span></a>
+        </li>
+    </ul>
 		</div>
 		<div class='panel-left'>
 			<section class='experiences'>

@@ -8,7 +8,8 @@
  *
  * Main module of the application.
  */
-function config($routeProvider) {
+function config($routeProvider, $locationProvider) {
+    $locationProvider.hashPrefix('');
     $routeProvider
     .when('/', {
         templateUrl: 'views/home.html',
@@ -60,14 +61,9 @@ function MainController($scope, $location, anchorSmoothScroll) {
             'short': 'linkedin.com/in/dongkan'
         },
         {
-            'label': 'Twitter',
-            'link': 'https://twitter.com/kannier',
-            'short': '@kannier'
-        },
-        {
-            'label': 'CodePen',
-            'link': 'http://codepen.io/kandong/',
-            'short': '@kandong'
+            'label': 'Github',
+            'link': 'https://github.com/kandong',
+            'short': 'github.com/kandong'
         },
     ];
     $scope.menu = {
@@ -83,7 +79,7 @@ function MainController($scope, $location, anchorSmoothScroll) {
     };
 }
 
-function anchorSmoothScroll($document, $window) {
+function AnchorSmoothScroll($document, $window) {
     var document = $document[0];
     var window = $window;
 
@@ -120,7 +116,7 @@ function anchorSmoothScroll($document, $window) {
         var leapY = startY + step;
 
         for (var i = startY; i < stopY; i += step) {
-            setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+            setTimeout('window.scrollTo(0, ' + leapY + ')', timer * speed);
             leapY += step;
             if (leapY > stopY) {
                 leapY = stopY;
@@ -137,7 +133,7 @@ function anchorSmoothScroll($document, $window) {
         var leapY = startY - step;
 
         for (var i = startY; i > stopY; i -= step) {
-            setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+            setTimeout('window.scrollTo(0, ' + leapY + ')', timer * speed);
             leapY -= step;
             if (leapY < stopY) {
                 leapY = stopY;
@@ -215,11 +211,37 @@ function social() {
 
 function factoryProjects() {
     var projects = {
+        'workpop': {
+            'imgPath': 'workpop',
+            'title': 'Workpop',
+            'subtitle': 'Hiring Web Application',
+            'description': 'Build internal React components library, creating consistent and engaging design patterns across all parts of our platform.  Shipped the Career Site custom builder where clients can create their own branded Career pages in just a few minutes. As a result, larger clients were attracted to Workpop.  Updated the subscription model essential to business growth needs. This resolved long standing customer issues by making the account management experience CSS easier.',
+            'tools': ['React', 'Redux', 'Apollo/GraphQL', 'ES2015+', 'Glamor', 'Recompose', 'Babel', 'Webpack', 'Yarn'],
+            'link': '',
+            'screenshots': [
+                {
+                    'title': 'Career Site Custom Builder',
+                    'images': ['careerSite.gif']
+                },
+                {
+                    'title': 'Account Management',
+                    'images': ['account.png']
+                },
+                {
+                    'title': 'Pause Account Modal',
+                    'images': ['pause.png']
+                },
+                {
+                    'title': 'Candidate Review Filter & Share Jobs',
+                    'images': ['ui.png']
+                },
+            ]
+        },
         'smooth-jazz-platform' : {
             'imgPath': 'smoothjazz',
             'title': 'Smooth Jazz',
             'subtitle': 'E-commerce platform',
-            'description': 'Smooth Jazz is a single page application equipped for E-commerce solution.  As a front end developer, I worked on interface design and develop for various features, such as adding product to wish list, gift card purchase and redemption, assigning similar products, etc.  I challenged myself to also emmerse into back end development, and implemented features like building tree structure for product listing navigation, improving search algorithm, and building an email marketing system.',
+            'description': 'Smooth Jazz is a single page application equipped for E-commerce solution.  As a front end developer, I worked on interface design and develop for various features, such as adding product to wish list, gift card purchase and redemption, assigning similar products, etc.  I challenged myself to also emmerse into back end development, and implemented features like building tree structure for product listing navigation, improving search algorithm, and building an email template generating tool.',
             'tools': ['Backbone.Js', 'JavaScript', 'jQuery', 'PHP', 'HTML', 'Handlebars', 'SaSS', 'DynamoDB', 'MySQL', 'Git', 'Grunt'],
             'link': '',
             'noMobile': true,
@@ -368,7 +390,7 @@ function factoryProjects() {
             'imgPath': 'haanoakley',
             'title': 'Haan Oakley',
             'subtitle': 'Demo site',
-            'description': 'This is a demo website only for mock-up purpose.',
+            'description': 'A demo website created for UI explorations.',
             'tools': ['jQuery', 'HTML', 'SaSS'],
             'link': 'http://hoakley.smoothjazz.me/',
             'screenshots': [
@@ -397,8 +419,8 @@ angular.module('portfolioApp', [
         'ngRoute',
         'angular-inview'
     ])
-    .config(config)
-    .service('anchorSmoothScroll', anchorSmoothScroll)
+    .config(['$routeProvider', '$locationProvider', config])
+    .service('anchorSmoothScroll', AnchorSmoothScroll)
     .factory('projects', factoryProjects)
     .directive('loadImg', loadImg)
     .directive('social', social)
